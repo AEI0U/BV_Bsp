@@ -39,33 +39,45 @@ public void start( final javafx.stage.Stage primaryStage ){
 	
 	HBox menu = new HBox();
 	
-    //Create Menus
+	     //Create Menus
 	 Menu menuFile   = new Menu("Datei");
-	// Menu menuEdit   = new Menu("Bearbeiten");
+	 Menu menuEdit   = new Menu("Bearbeiten");
 	 Menu menuView   = new Menu("Ansicht");
-	// Menu menuWindow = new Menu("Fenster");
 	 Menu menuHelp   = new Menu("Hilfe");
 	 
 	 //Create MenuItems
-	 MenuItem menuItemOpenFile = new MenuItem("Öffne Datei");
-	 MenuItem menuItemNewFile  = new MenuItem("Neue Datei anlegen");
-     menuFile.getItems().addAll(menuItemOpenFile, menuItemNewFile);
+	 MenuItem menuItemOpenFile   = new MenuItem("Ã–ffne Datei");
+	 MenuItem menuItemNewFile    = new MenuItem("Neue Datei anlegen");
+	 MenuItem menuItemPrintFile  = new MenuItem("Drucken");
+	 MenuItem menuItemSaveFile   = new MenuItem("Speichern");
+	 MenuItem menuItemSaveAsFile = new MenuItem("Speichern unter");
+	 MenuItem menuItemImportFile = new MenuItem("Importieren");
+	 MenuItem menuItemExportFile = new MenuItem("Exportieren");
+     menuFile.getItems().addAll(menuItemOpenFile, menuItemNewFile, menuItemPrintFile, menuItemSaveFile, menuItemSaveAsFile,
+    		                    menuItemImportFile, menuItemExportFile);
      
-     //MenuItem menuItemDelete = new MenuItem("Löschen");
-     //MenuItem menuItemCopy   = new MenuItem("Kopieren");
-     //MenuItem menuItemCutOut = new MenuItem("Ausschneiden");
-     //menuEdit.getItems().addAll(menuItemDelete, menuItemCopy, menuItemCutOut);
+     MenuItem menuItemDelete        = new MenuItem("LÃ¶schen");
+     MenuItem menuItemCopy          = new MenuItem("Kopieren");
+     MenuItem menuItemCutOut        = new MenuItem("Ausschneiden");
+     MenuItem menuItemBlackAndWhite = new MenuItem("Schwarz und WeiÃŸ");
+     MenuItem menuItemChooseAll     = new MenuItem("WÃ¤hle alle");
+     menuEdit.getItems().addAll(menuItemDelete, menuItemCopy, menuItemCutOut, menuItemBlackAndWhite, menuItemChooseAll);
      
-     MenuItem menuItemEnlarge  = new MenuItem("Vergrößern");
-     MenuItem menuItemDecrease = new MenuItem("Verkleinern");
-     menuView.getItems().addAll(menuItemEnlarge, menuItemDecrease);
+     MenuItem menuItemFullScreenView  = new MenuItem("Vollbildansicht");
+     MenuItem menuItemImages          = new MenuItem("Bilder");
+     MenuItem menuItemChanges         = new MenuItem("Ã„nderungen");
+     menuView.getItems().addAll(menuItemFullScreenView, menuItemImages, menuItemChanges);
+     
+     MenuItem menuItemGetHelpOnline   = new MenuItem("Hilfe Online erhalten");
+     MenuItem menuItemCheckForUpdates = new MenuItem("Auf updates Ã¼berprÃ¼fen");
+     menuView.getItems().addAll(menuItemGetHelpOnline, menuItemChanges);
      
      
-     // Menu Ansicht:0  Dunkel/Hell, Große/Kleine Kacheln oder Liste ??
+     // Menu Ansicht:0  Dunkel/Hell, GroÃŸe/Kleine Kacheln oder Liste ??
      MenuBar menuBar = new MenuBar();
-     menuBar.getMenus().addAll(menuFile, menuView, menuHelp);
+     menuBar.getMenus().addAll(menuFile, menuEdit, menuView, menuHelp);
      menu.getChildren().add(menuBar);
-     
+
      
      //Buttons werden erstellt
 	 ToolBar toolBar     = new ToolBar();
@@ -76,7 +88,7 @@ public void start( final javafx.stage.Stage primaryStage ){
 	 //Button buttonEffect = new Button("Effekte");
      toolBar.getItems().addAll(buttonImport, buttonPrint, buttonSearch);
      
-     //Es werden Bilder/Graphiken anstelle der Buttons hinzugefügt
+     //Es werden Bilder/Graphiken anstelle der Buttons hinzugefÃ¼gt
      buttonImport.setGraphic(new ImageView("/pathToButtonImport.png"));
      buttonPrint.setGraphic(new ImageView("/pathToButtonPrint"));
     // buttonSelect.setGraphic(new ImageView("/pathToButtonSelect"));
