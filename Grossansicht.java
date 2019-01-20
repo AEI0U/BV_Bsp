@@ -55,8 +55,7 @@ public class Grossansicht extends Application{
 	    //Es gibt wohl die Moeglichkeit die RadioButtons als Sterne mit css darzustellen.
 	    //Die andere Moeglichkeit hat bei mir nicht funktioniert...
 	    
-	    HBox rating = new HBox();
-	    
+	    HBox rating = new HBox(); 
 	    RadioButton rating1 = new RadioButton();
 	    RadioButton rating2 = new RadioButton();
 	    RadioButton rating3 = new RadioButton();
@@ -65,7 +64,6 @@ public class Grossansicht extends Application{
 	    Button ratingClear = new Button("0");
 	    
 	    rating1.setOnAction(new EventHandler<ActionEvent>() {
-
             public void handle(ActionEvent event) {
             	Bewertung =1;
             	rating1.setSelected(true);
@@ -77,7 +75,6 @@ public class Grossansicht extends Application{
         });
 	    
 	    rating2.setOnAction(new EventHandler<ActionEvent>() {
-
             public void handle(ActionEvent event) {
             	Bewertung =2;
             	rating1.setSelected(true);
@@ -100,35 +97,35 @@ public class Grossansicht extends Application{
     });
 	    
 	    rating4.setOnAction(new EventHandler<ActionEvent>() {
-		public void handle(ActionEvent event) {
-	        Bewertung =4;
-	        rating1.setSelected(true);
-	        rating2.setSelected(true);
-	        rating3.setSelected(true);
-	        rating4.setSelected(true);
-	        rating5.setSelected(false);
-	     }
-	});
+	    public void handle(ActionEvent event) {
+	    	Bewertung =4;
+	   	rating1.setSelected(true);
+	   	rating2.setSelected(true);
+	   	rating3.setSelected(true);
+	   	rating4.setSelected(true);
+	  	rating5.setSelected(false);
+	  }
+     });
 	    
 	    rating5.setOnAction(new EventHandler<ActionEvent>() {
-		public void handle(ActionEvent event) {
-	    Bewertung =5;
-	    rating1.setSelected(true);
-	    rating2.setSelected(true);
-	    rating3.setSelected(true);
-	    rating4.setSelected(true);
-	    rating5.setSelected(true);
+	    public void handle(ActionEvent event) {
+	    	Bewertung =5;
+	    	rating1.setSelected(true);
+	    	rating2.setSelected(true);
+	    	rating3.setSelected(true);
+	    	rating4.setSelected(true);
+	    	rating5.setSelected(true);
 	      }
 	 });
 	    
 	    ratingClear.setOnAction(new EventHandler<ActionEvent>() {
-        public void handle(ActionEvent event) {
-        Bewertung =0;
-        rating1.setSelected(false);
-        rating2.setSelected(false);
-        rating3.setSelected(false);
-        rating4.setSelected(false);
-        rating5.setSelected(false);
+            public void handle(ActionEvent event) {
+        	Bewertung =0;
+        	rating1.setSelected(false);
+        	rating2.setSelected(false);
+        	rating3.setSelected(false);
+        	rating4.setSelected(false);
+        	rating5.setSelected(false);
            }
      });
 	    
