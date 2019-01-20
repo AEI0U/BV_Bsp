@@ -100,38 +100,37 @@ public class Grossansicht extends Application{
     });
 	    
 	    rating4.setOnAction(new EventHandler<ActionEvent>() {
-		    public void handle(ActionEvent event) {
-	        	Bewertung =4;
-	        	rating1.setSelected(true);
-	        	rating2.setSelected(true);
-	        	rating3.setSelected(true);
-	        	rating4.setSelected(true);
-	        	rating5.setSelected(false);
-	        }
-	    });
+		public void handle(ActionEvent event) {
+	        Bewertung =4;
+	        rating1.setSelected(true);
+	        rating2.setSelected(true);
+	        rating3.setSelected(true);
+	        rating4.setSelected(true);
+	        rating5.setSelected(false);
+	     }
+	});
 	    
 	    rating5.setOnAction(new EventHandler<ActionEvent>() {
-		    public void handle(ActionEvent event) {
-	        	Bewertung =5;
-	        	rating1.setSelected(true);
-	        	rating2.setSelected(true);
-	        	rating3.setSelected(true);
-	        	rating4.setSelected(true);
-	        	rating5.setSelected(true);
-	        }
-	    });
+		public void handle(ActionEvent event) {
+	    Bewertung =5;
+	    rating1.setSelected(true);
+	    rating2.setSelected(true);
+	    rating3.setSelected(true);
+	    rating4.setSelected(true);
+	    rating5.setSelected(true);
+	      }
+	 });
 	    
 	    ratingClear.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent event) {
-            	Bewertung =0;
-            	rating1.setSelected(false);
-            	rating2.setSelected(false);
-            	rating3.setSelected(false);
-            	rating4.setSelected(false);
-            	rating5.setSelected(false);
-            }
-        });
+        public void handle(ActionEvent event) {
+        Bewertung =0;
+        rating1.setSelected(false);
+        rating2.setSelected(false);
+        rating3.setSelected(false);
+        rating4.setSelected(false);
+        rating5.setSelected(false);
+           }
+     });
 	    
 	    Tooltip tooltipRating = new Tooltip("Bild Bewertung");
 	    rating1.setTooltip(tooltipRating);
@@ -142,7 +141,7 @@ public class Grossansicht extends Application{
 	    tooltipRating.setTextAlignment(TextAlignment.RIGHT);
 	    
 	    Tooltip tooltipRatingClear = new Tooltip("Bild Bewertung löschen");
-	    ratingClear.setTooltip(tooltipRating);
+	    ratingClear.setTooltip(tooltipRatingClear);
 	    tooltipRating.setTextAlignment(TextAlignment.RIGHT);
 	    
 	    rating.getChildren().addAll(rating1, rating2, rating3, rating4, rating5,ratingClear);
@@ -189,8 +188,8 @@ public class Grossansicht extends Application{
 	    
 	    Button buttonComment = new Button ("C");
 	    Tooltip tooltipComment = new Tooltip("Kommentar einfügen");
-	    buttonNext.setTooltip(tooltipComment);
-	    tooltipNext.setTextAlignment(TextAlignment.RIGHT);
+	    buttonComment.setTooltip(tooltipComment);
+	    tooltipComment.setTextAlignment(TextAlignment.RIGHT);
 	    
 	    
 	    Button buttonDelete = new Button ("X");
