@@ -44,7 +44,7 @@ public void start( final javafx.stage.Stage primaryStage ){
 	  */
 	 Menu menuOrganize   		= new Menu("Verwalten");
 	 Menu organizeFiles 		= new Menu("Alben Verwalten");
-	 MenuItem openFile 			= new MenuItem("Album Öffnen");
+	 MenuItem openFile 	        = new MenuItem("Album Öffnen");
 	 MenuItem newFile   		= new MenuItem("Album Anlegen");
 	 MenuItem fileLocation 		= new MenuItem("Album Verschieben");
 	 MenuItem deleteFile 		= new MenuItem("Album Löschen");
