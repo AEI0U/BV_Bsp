@@ -144,7 +144,6 @@ public void start( final javafx.stage.Stage primaryStage ){
      flow.setVgap(8);
      flow.setHgap(4);
      flow.setPrefWrapLength(400); 
-     VBox picBox = new VBox();
 
      
      ImageView[] imageView ;
@@ -163,9 +162,7 @@ public void start( final javafx.stage.Stage primaryStage ){
          imageView[j].setSmooth(true);
          imageView[j].setPreserveRatio(true);
      }
-     picBox.getChildren().addAll(imageView);
-     
-     flow.getChildren().add(picBox); 
+     flow.getChildren().addAll(imageView);
 
       // resizes the image to have width of 100 while preserving the ratio and using
       // higher quality filtering method; this ImageView is also cached to
