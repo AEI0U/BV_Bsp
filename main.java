@@ -113,9 +113,9 @@ public void start( final javafx.stage.Stage primaryStage ){
      TitledPane secondTitledPane = new TitledPane();
      secondTitledPane.setText("Suchen/Filtern");
      VBox suchen_filtern = new VBox();
-     suchen_filtern.getChildren().add(new Label("Suche"));
-     suchen_filtern.getChildren().add(new Label("Suche"));
-     suchen_filtern.getChildren().add(new Label("Suche")); 
+     //suchen_filtern.getChildren().add(new Label("Suche"));
+     //suchen_filtern.getChildren().add(new Label("Suche"));
+     //suchen_filtern.getChildren().add(new Label("Suche")); 
      
      secondTitledPane.setContent(suchen_filtern);
      
