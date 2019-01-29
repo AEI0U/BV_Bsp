@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
 
-public class Main extends javafx.application.Application {
+public class Main extends Application {
 	int HOEHE  = 300;
 	int BREITE = 600;
 
@@ -39,85 +39,66 @@ public void start( final javafx.stage.Stage primaryStage ){
 	
 	HBox menu = new HBox();
 	
-	     //Create Menus
-	 Menu menuFile   = new Menu("Datei");
-	 Menu menuEdit   = new Menu("Bearbeiten");
-	 Menu menuView   = new Menu("Ansicht");
-	 Menu menuHelp   = new Menu("Hilfe");
+	 /*
+	  * Menu Verwaltung werden hier angelegt
+	  */
+	 Menu menuOrganize   		= new Menu("Verwalten");
+	 Menu organizeFiles 		= new Menu("Alben Verwalten");
+	 MenuItem openFile 			= new MenuItem("Album Öffnen");
+	 MenuItem newFile   		= new MenuItem("Album Anlegen");
+	 MenuItem fileLocation 		= new MenuItem("Album Verschieben");
+	 MenuItem deleteFile 		= new MenuItem("Album Löschen");
+	 organizeFiles.getItems().addAll(openFile, newFile, fileLocation,deleteFile);
 	 
+	 Menu organizeImages 		= new Menu("Bilder Verwalten");
+	 MenuItem showImage  		= new MenuItem("Bild Anzeigen");
+	 MenuItem saveAsImage		= new MenuItem("Speichern Unter");
+	 MenuItem imageLocation		= new MenuItem("Bild Verschieben");
+	 MenuItem deleteImage 		= new MenuItem("Bild Löschen");
+	 organizeImages.getItems().addAll(showImage, saveAsImage, imageLocation,deleteImage);
+	
+	 Menu menuImport 	= new Menu("Importieren");
+	 MenuItem importFile 	= new MenuItem("Album Importieren");
+	 MenuItem importImage 	= new MenuItem("Bild Importieren");
+	 menuImport.getItems().addAll(importFile, importImage);
+	 
+	 menuOrganize.getItems().addAll(organizeFiles,organizeImages,menuImport);
+	 
+	 Menu menuHelp   = new Menu("Hilfe");
+	 MenuItem getHelpOnline   = new MenuItem("Hilfe Online erhalten");
+     MenuItem checkForUpdates = new MenuItem("Auf Updates überprüfen");
+     menuHelp.getItems().addAll(getHelpOnline, checkForUpdates);
 	 //Create MenuItems
-	 MenuItem menuItemOpenFile   = new MenuItem("Öffne Datei");
-	 MenuItem menuItemNewFile    = new MenuItem("Neue Datei anlegen");
-	 MenuItem menuItemPrintFile  = new MenuItem("Drucken");
-	 MenuItem menuItemSaveFile   = new MenuItem("Speichern");
-	 MenuItem menuItemSaveAsFile = new MenuItem("Speichern unter");
-	 MenuItem menuItemImportFile = new MenuItem("Importieren");
-	 MenuItem menuItemExportFile = new MenuItem("Exportieren");
-     menuFile.getItems().addAll(menuItemOpenFile, menuItemNewFile, menuItemPrintFile, menuItemSaveFile, menuItemSaveAsFile,
-    		                    menuItemImportFile, menuItemExportFile);
-     
-     MenuItem menuItemDelete        = new MenuItem("Löschen");
-     MenuItem menuItemCopy          = new MenuItem("Kopieren");
-     MenuItem menuItemCutOut        = new MenuItem("Ausschneiden");
-     MenuItem menuItemBlackAndWhite = new MenuItem("Schwarz und Weiß");
-     MenuItem menuItemChooseAll     = new MenuItem("Wähle alle");
-     menuEdit.getItems().addAll(menuItemDelete, menuItemCopy, menuItemCutOut, menuItemBlackAndWhite, menuItemChooseAll);
-     
-     MenuItem menuItemFullScreenView  = new MenuItem("Vollbildansicht");
-     MenuItem menuItemImages          = new MenuItem("Bilder");
-     MenuItem menuItemChanges         = new MenuItem("Änderungen");
-     menuView.getItems().addAll(menuItemFullScreenView, menuItemImages, menuItemChanges);
-     
-     MenuItem menuItemGetHelpOnline   = new MenuItem("Hilfe Online erhalten");
-     MenuItem menuItemCheckForUpdates = new MenuItem("Auf updates überprüfen");
-     menuView.getItems().addAll(menuItemGetHelpOnline, menuItemChanges);
-     
-     
-     // Menu Ansicht:0  Dunkel/Hell, Große/Kleine Kacheln oder Liste ??
+	 
      MenuBar menuBar = new MenuBar();
-     menuBar.getMenus().addAll(menuFile, menuEdit, menuView, menuHelp);
+     menuBar.getMenus().addAll(menuOrganize, menuHelp);
      menu.getChildren().add(menuBar);
 
      
      //Buttons werden erstellt
 	 ToolBar toolBar     = new ToolBar();
 	 Button buttonImport = new Button("Import");
-	 Button buttonPrint  = new Button("Drucken");
-	// Button buttonSelect = new Button("Auswahl");
 	 Button buttonSearch = new Button("Suchen");
-	 //Button buttonEffect = new Button("Effekte");
-     toolBar.getItems().addAll(buttonImport, buttonPrint, buttonSearch);
+	 toolBar.getItems().addAll(buttonImport, buttonSearch);
      
+	 /**
      //Es werden Bilder/Graphiken anstelle der Buttons hinzugefügt
      buttonImport.setGraphic(new ImageView("/pathToButtonImport.png"));
      buttonPrint.setGraphic(new ImageView("/pathToButtonPrint"));
     // buttonSelect.setGraphic(new ImageView("/pathToButtonSelect"));
      buttonSearch.setGraphic(new ImageView("/pathToButtonSearch"));
      //buttonEffect.setGraphic(new ImageView("/pathToButtonEffect"));
-     
-     //Create Tooltip for buttons
+     */
+	 
+     //Bennenungen der Buttons anzeigen
      Tooltip tooltipImport = new Tooltip("Import");
      buttonImport.setTooltip(tooltipImport);
      tooltipImport.setTextAlignment(TextAlignment.RIGHT);
      
-     Tooltip tooltipPrint  = new Tooltip("Drucken");
-     buttonPrint.setTooltip(tooltipPrint);
-     tooltipPrint.setTextAlignment(TextAlignment.RIGHT);
-     
-     //Tooltip tooltipSelect = new Tooltip("Auswahl");
-     //buttonSelect.setTooltip(tooltipSelect);
-     //tooltipSelect.setTextAlignment(TextAlignment.RIGHT);
-     
      Tooltip tooltipSearch = new Tooltip("Suchen");
      buttonSearch.setTooltip(tooltipSearch);
      tooltipSearch.setTextAlignment(TextAlignment.RIGHT);
-     
-     //Tooltip tooltipEffect = new Tooltip("Effekte");
-     //buttonEffect.setTooltip(tooltipEffect);
-     //tooltipEffect.setTextAlignment(TextAlignment.RIGHT);
-     
-     
-     
+          
      SplitPane splitPaneTop = new SplitPane();
      splitPaneTop.setOrientation(Orientation.VERTICAL);
      splitPaneTop.getItems().addAll(menuBar, toolBar);
@@ -165,9 +146,9 @@ public void start( final javafx.stage.Stage primaryStage ){
  	borderPane.setCenter(flow);
 	
  	
- 	Scene scene2 = new Scene(borderPane);
+ 	Scene scene = new Scene(borderPane);
  	
- 	primaryStage.setScene(scene2);
+ 	primaryStage.setScene(scene);
     primaryStage.show();
 }
 
